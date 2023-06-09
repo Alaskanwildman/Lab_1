@@ -14,6 +14,15 @@ public class GameController: MonoBehaviour
         scoreStyle.normal.textColor = Color.white;
         GUI.Label(new Rect(10, 10, 200, 50), "Score: " + score, scoreStyle);
     }
+    void OnTriggerEnter(Collider other) {
+        if (other.gameObject.CompareTag("Cube")) {
+            UpdateScore();
+            other.gameObject.SetActive(false);
+        }
+    }
+    void UpdateScore(){
+        score++;
+    }
 
 
 }
